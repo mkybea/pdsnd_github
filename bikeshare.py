@@ -215,7 +215,7 @@ def trip_duration_stats(df):
     print_p('\n\n***End of TRIP DURATION STATION Statistics***\n\n')
 
 def user_stats(df):  
-    print_p('\n\n***USER Statistics***\n\n')
+    print_p('\n\n*** USER Statistics ***\n\n')
     gender_ct = 2
     user_type_ct = 2
     
@@ -229,9 +229,9 @@ def user_stats(df):
     
     print_p('Most recent birth year is ' + str(int(df['Birth Year'].max())))
     print_p('Most common birth year is ' + str(int(df['Birth Year'].mode()[0])))
-    print_p('Most earliest birth year is ' + str(int(df['Birth Year'].min())))
+    print_p('Earliest birth year is ' + str(int(df['Birth Year'].min())))
 
-    print_p('\n\n***End of USER Statistics***\n\n')
+    print_p('\n\n*** End of USER Statistics ***\n\n')
 
 def view_data_question(df):
     """ Offers an option in how to view the data"""    
