@@ -1,17 +1,15 @@
->**Note**: Please **fork** the current Udacity repository so that you will have a **remote** repository in **your** Github account. Clone the remote repository to your local machine. Later, as a part of the project "Post your Work on Github", you will push your proposed changes to the remote repository in your Github account.
-
 ### Date created
-Include the date you created this project and README file.
+April 23, 2024
 
-### Project Title
-Replace the Project Title
+# BikeShare.py
 
-### Description
-Describe what your project is about and what it does
+## Description
+BikeShare is a script that is meant to aide in analyzing and creating statistics for Bike Sharing programs in major US cities.
+It is intended to allow users to interact and populate relevant data from .csv files with raw data to be ingested in a more readable format.
 
 ### Files used
-Include the files used
+* bike share .csv files for requested cities
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Data files and bikeshare python script were pulled from Udacity program listed here:
+https://github.com/m-soro/Data-Science-with-Python/tree/main/projects
