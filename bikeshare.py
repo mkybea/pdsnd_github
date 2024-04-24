@@ -132,6 +132,7 @@ def filter_data():
             day = None
             df  
     except Exception as e:
+	print("An error has occured in the filtering process: ")
         print(e) 
     df = df.copy(deep=True)    
     # Returns the filtered/un-filtered DataFrame and user's inputs as tuples
