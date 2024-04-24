@@ -9,7 +9,7 @@ import time
 # Generic print function for user experience
 def print_p(statement):
     print(statement)
-    time.sleep(.500)
+    time.sleep(1)
 
 # Some lambda helper functions
 get_value = lambda x,y,n :x.groupby([y])[y].count().sort_values(ascending=False).head(n).values
