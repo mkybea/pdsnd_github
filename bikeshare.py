@@ -66,7 +66,7 @@ def city_checker(query):
                       'washington': 'washington.csv' }      
         city = input(query).lower()
         if city not in city_data:
-            print('Invalid input: Select from: --> Chicago, New York or Washington ')
+            print('Invalid input: Select from:  :  Chicago, New York or Washington ')
             continue
         elif city in city_data:
             city = city_data[city]
@@ -125,17 +125,17 @@ def filter_data():
         df['Hour'] = df['Start Time'].dt.strftime('%-I %p')
 
         # Filter by month if applicable
-        mon_ans = y_or_n('Do you want to filter by month -->')
+        mon_ans = y_or_n('Do you want to filter by month  : ')
         if mon_ans == 'y':
-            mon = mon_checker('What month do you want to filter? \nEnter name of month -->')
+            mon = mon_checker('What month do you want to filter? \nEnter name of month  : ')
             df = df[df['Month'] == mon]
         elif mon_ans == 'n':
             mon = None
             df                   
         # Filter by day of week if applicable
-        day_ans = y_or_n('Do you want to filter by day -->')
+        day_ans = y_or_n('Do you want to filter by day  : ')
         if day_ans == 'y':
-            day = day_checker('What day you want to filter? \nEnter name of day -->')
+            day = day_checker('What day you want to filter? \nEnter name of day  : ')
             df = df[df['DOW'] == day]
         elif day_ans == 'n':
             day = None
@@ -237,8 +237,8 @@ def view_data_question(df):
     while True:
         try:
             answer = int(float(input('\n\n***Select OPTIONS to VIEW or SKIP VIEW DATA*** '
-            '\n\n1 --> to view every five rows \n \n2 --> to specify the amount'
-            ' of rows to return  \n \n3 --> to skip view data   ')))
+            '\n\n1  :  to view every five rows \n \n2 --> to specify the amount'
+            ' of rows to return  \n \n3  :  to skip view data   ')))
             if answer not in [1, 2, 3]:
                 print('\nValid options are : 1, 2, and 3')
                 continue
@@ -255,13 +255,13 @@ def view_data_question(df):
             print('\nInvalid input. Enter only 1, 2 or 3')    
 
 def prompt_user_for_data(df):
-    """ View data option 1 ---> every 5 rows? """
+    """ View data option 1 - :  every 5 rows? """
     print_p('\n\n***Printing FIVE ROWS consecutively***\n\n')
     print_p("I have " + str(fnum(len(df))) + " total rows available to view. ")
     start = 0
     fiverr = 5
     while fiverr < len(df)+10:
-        answer = y_or_n('\n\nView every 5 rows of --> ')
+        answer = y_or_n('\n\nView every 5 rows of  :  ')
         if answer == 'y':
             pd.set_option('display.max_rows', None)
             pd.set_option('display.max_columns', None)
@@ -275,14 +275,14 @@ def prompt_user_for_data(df):
             break 
 
 def view_specified_rows(df):
-    """ View data option 2 ---> specific rows """      
+    """ View data option 2 - :  specific rows """      
     while True:
         print_p('\n\n***VIEW DATA***\n\n')
         print_p("I have " + str(fnum(len(df))) + " total rows available to view. ") 
         try:
-            num = int(float((input("Enter from 1 up to " + str(fnum(len(df))) + " no commas ! --> "))))
+            num = int(float((input("Enter from 1 up to " + str(fnum(len(df))) + " no commas !  :  "))))
             if num < 1 or num > len(df):
-                print_p("\nEnter only 1 up to " + str(fnum(len(df))) + "--> ")
+                print_p("\nEnter only 1 up to " + str(fnum(len(df))) + " :  ")
             else:  
                 print_p("\n\n***VIEWING " + str(num) + " ROWS***\n\n" )
                 pd.set_option('display.max_rows', None)
@@ -302,21 +302,21 @@ def project():
         df, mon_ans, mon, day_ans, day, city = filter_data()
         row_data_message = '\n\nAggregating ' + str(fnum(len(df))) + ' rows of data'
     
-        print_p('\n\nYou are viewing data for --> ' + city[:-4].upper() + '\n\n')
+        print_p('\n\nYou are viewing data for  :  ' + city[:-4].upper() + '\n\n')
 
         # Statements informing user which filters are selected
         if (mon_ans == 'n') and (day_ans == 'n'): 
             print_p('You selected *NO* time filters')
             print_p(row_data_message)
         elif (mon_ans == 'y') and (day_ans == 'n'):
-            print_p('Your selected time filter is month --> '+ mon.upper())
+            print_p('Your selected time filter is month  :  '+ mon.upper())
             print_p(row_data_message)
         elif (mon_ans == 'n') and (day_ans == 'y'):  
-            print_p('Your selected time filter is day --> ' + day.upper())
+            print_p('Your selected time filter is day  :  ' + day.upper())
             print_p(row_data_message)
         elif (mon_ans == 'y') and (day_ans == 'y'):
-            print_p('Your selected time filter is month --> ' + mon.upper() + 
-                    ' and day --> '+ day.upper())
+            print_p('Your selected time filter is month  :  ' + mon.upper() + 
+                    ' and day  :  '+ day.upper())
             print_p(row_data_message)
 
         # Start function calls    
@@ -327,13 +327,13 @@ def project():
         trip_duration_stats(df)    
         if'Gender' not in df.columns:
             view_data_question(df)
-            restart_view_data('\n\nConfirm to view data again? -->',df)
-            restart_program('\n\nWould you like to RE-start this program? -->') 
+            restart_view_data('\n\nConfirm to view data again?  : ',df)
+            restart_program('\n\nWould you like to RE-start this program?  : ') 
         else:
             user_stats(df)
             view_data_question(df)
-            restart_view_data('\n\nConfirm to view data again? -->',df)
-            restart_program('\n\nWould you like to RE-start this program? -->')
+            restart_view_data('\n\nConfirm to view data again?  : ',df)
+            restart_program('\n\nWould you like to RE-start this program?  : ')
     except Exception as e:
             print_p(e)   
 project()         
