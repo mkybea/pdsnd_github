@@ -1,9 +1,12 @@
-# Copied the bikeshare project from 
+# Project for Introduction to Version Control Udacity program
+# KBeach, 4/23/24
+# Source code bikeshare project duplicated from: 
 # https://github.com/m-soro/Data-Science-with-Python/blob/main/projects/project2/bikeshare_msoro.py
 
 import pandas as pd
 import time 
 
+# Generic print function for user experience
 def print_p(statement):
     print(statement)
     time.sleep(.500)
@@ -33,6 +36,7 @@ def y_or_n(query):
             break
     return answer
 
+# Validate months chosen
 def mon_checker(query):
     months = ['Jan','Feb', 'Mar', 'Apr', 'May', 'Jun']
     while True:
@@ -43,6 +47,7 @@ def mon_checker(query):
             break
     return mon
 
+# Validate days chosen
 def day_checker(query):
     days = ['Mon','Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     while True:
@@ -53,6 +58,7 @@ def day_checker(query):
             break
     return day
 
+# Section here can be adjusted based on csv city data being used
 def city_checker(query):
     while True:
         city_data = { 'chicago': 'chicago.csv',
@@ -67,6 +73,7 @@ def city_checker(query):
             break
     return city
 
+# Validate number
 def num_checker():
     while True:
         try:
@@ -83,6 +90,7 @@ def num_checker():
                 print('Please type a number')  
     return n
 
+# Restart program option
 def restart_program(query):
     restart = y_or_n(query)
     if restart == 'y':
@@ -90,6 +98,7 @@ def restart_program(query):
     else:
         print("Good-Bye!")
 
+# Restart query
 def restart_view_data(query,df):
     restart_view_data = y_or_n(query)
     if restart_view_data == 'y':
